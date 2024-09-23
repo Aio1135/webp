@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+	<meta charset ="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Document </title>
+    <script>
+        function register(){this.nStudent++;}
+        function unregister(){this.nStudent--;}
+        function getStudentCount(){this.nStudent;}
+
+        let student = new Object();
+        student.korName = "웹프로그래밍";
+        student.engName = "Web Programming";
+        student.classCode = "V024003";
+        student.nStudent = 0;
+        student.register = register;
+        student.unregister = unregister;
+        student.getStudentCount = getStudentCount;
+    </script>
+    <script>
+        let student2 ={
+            korName2 : "클라우드컴퓨팅",
+            engName2 : "Cloud Computing",
+            classCode2 : "V024004",
+            nStudent2 : 0,
+            register2 : function(){this.nStudent2++;},
+            unregister2 : function(){this.nStudent2--;},
+            getStudentCount2 : function(){return this.nStudent2;}
+        };
+    </script>
+    <script>
+        function Student(korName,engName,classCode,nStudent){
+            this.korName3 = korName;
+            this.engName3 = engName;
+            this.classCode3 = classCode;
+            this.nStudent3 = nStudent;
+
+            this.register3 = function(){this.nStudent3++;}
+            this.unregister3 = function(){this.nStudent3--;}
+            this.getStudentCount3 = function(){return this.nStudent3;}
+        }
+    </script>
+</head>
+<body>
+    <h3>1. 직접 객체 만들기</h3>
+<script>
+    document.write("교과목 이름 =" + student.korName + "<br>");
+    document.write("등록 학생 수 = " + student.nStudent + "<br>");
+    student.register();
+    document.write("after register, 등록 학생 수 = " + student.nStudent + "<br>");
+</script>
+<hr>
+<h3>2. 리터럴 표기법</h3>
+<script>
+    document.write("교과목 이름 = " + student2.korName2 + "<br>");
+    document.write("등록 학생 수 = " + student2.nStudent2 + "<br>");
+    student2.register2();
+    document.write("after register, 등록 학생 수 = " + student2.nStudent2);
+</script>
+<hr>
+<h3>3. Prototype</h3>
+<script>
+    let student3 = new Student("프로그래밍언어론", "Programming Language Theory", "V024005",0);
+    document.write("교과목 이름 = " + student3.korName3 + "<br>");
+    document.write("등록 학생 수 = " + student3.nStudent3 + "<br>");
+    student3.register3();
+    document.write("after register, 등록 학생 수 = " + student3.nStudent3);
+</script>
+</body>
+</html>
