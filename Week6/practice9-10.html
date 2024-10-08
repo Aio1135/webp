@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 만들기</title>
+    <style>
+        input[type=text]{
+            width: 365px;
+            margin-top: 5px;
+        }
+        input[type=button]{
+        width: 70px;
+        margin-right: 20px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        }
+    </style>
+    <script>
+        function cal(){ //"="버튼 누르면 실행
+            var exp = document.getElementById("exp");
+            exp.value = eval(exp.value);
+        }
+        function addnum(i){ //숫자버튼을 누르면 실행
+            var exp = document.getElementById("exp");
+            if(exp.value==0){
+                exp.value = i; //초기에 0으로 설정된 값을 버튼값이 대신함.
+            }
+            else{
+                exp.value += i;
+            }
+        }
+        function reset(){ //"CE"나 "C"버튼을 누르면 실행
+            var exp = document.getElementById("exp");
+            exp.value = "0";
+        }
+        function addOperator(i){ //연산자 버튼을 누르면 실행
+            var exp = document.getElementById("exp");
+            exp.value += i;
+        }
+        function back(){ //"back" 버튼을 누르면 실행
+            var exp = document.getElementById("exp");
+            let str = exp.value; //현재 text창에 입력된 값을 저장하고 
+            let newstr = str.slice(0,-1); //마지막 문자열만 지움
+            exp.value = newstr; //text창에 잘라낸 문자열을 전달해줌.
+        }
+    </script>
+</head>
+<body>
+    <h3>계산기 만들기</h3>
+    <hr>
+    <input id="exp" type="text" value="0"><br>
+    <input type="button" value="BACK" onclick="back()">
+    <input type="button" value="CE" onclick="reset()">
+    <input type="button" value="C" onclick="reset()"> 
+    <input type="button" value="=" onclick="cal()"> <br>
+    <input type="button" value="7" onclick="addnum('7')"> 
+    <input type="button" value="8" onclick="addnum('8')"> 
+    <input type="button" value="9" onclick="addnum('9')"> 
+    <input type="button" value="/" onclick="addOperator('/')"> <br>
+    <input type="button" value="4" onclick="addnum('4')">
+    <input type="button" value="5" onclick="addnum('5')">
+    <input type="button" value="6" onclick="addnum('6')">
+    <input type="button" value="*" onclick="addOperator('*')"> <br>
+    <input type="button" value="1" onclick="addnum('1')">
+    <input type="button" value="2" onclick="addnum('2')">
+    <input type="button" value="3" onclick="addnum('3')">
+    <input type="button" value="-" onclick="addOperator('-')"> <br>
+    <input type="button" value="0" onclick="addnum('0')">
+    <input type="button" value="+" onclick="addOperator('+')">
+    <input type="button" value="NONE">
+    <input type="button" value="NONE">
+
+</body>
+</html>
