@@ -24,7 +24,7 @@
    - BOM 객체
 8. week8
    - 중간고사
-9. week9 / 
+9. week9 / practice 12-1.html
    - web storage
    - 웹의 쿠키 사용
    - 세션 스토리지와 로컬 스토리지 조작 코드 작성
@@ -32,7 +32,10 @@
    - 오디오, 비디오 제어
    - 웹 워커 생성 및 통신
    - 타이머를 가진 웹워커 만들기
-11. week12
-   -
-12. week14 /
-   -
+11. week12 / funcPr-practice
+   - 고급 자바스크립트 구문 연습
+   - JS function 사용
+   - 함수형 프로그래밍 연습
+12. week14 / app1.js, app2.js, ...
+   - Express js 사용
+   - Middleware, Router 개념 공부
