@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기 작성</title>
+    <script>
+        // 오늘날짜 설정함수
+        function setTodayDate() {
+            const today = new Date();
+            const formattedDate = today.getFullYear() + '.' +
+                                  String(today.getMonth() + 1).padStart(2, '0') + '.' +
+                                  String(today.getDate()).padStart(2, '0');
+            document.getElementById('date').innerText = '오늘 ' + formattedDate;
+        }
+
+        function saveDiary() {
+            const today = document.getElementById('date').innerText.replace('오늘 ', '');
+            const content = document.getElementById('diary').value;
+
+            if (content.trim() === '') {
+                alert('내용을 입력해주세요.');
+                return;
+            }
+
+            localStorage.setItem(today, content);
+            alert('일기가 저장되었습니다.');
+        }
+
+        // 새로운 창에서 일기 보기 페이지 열기
+        function viewDiary() {
+            window.open('./view.html', '_blank');
+        }
+    </script>
+</head>
+<body onload="setTodayDate()">
+    <h2>일기 쓰기</h2>
+    <hr>
+    <div id="date"></div>
+    <textarea id="diary" rows="10" cols="50"></textarea>
+    <br><br>
+    <button onclick="saveDiary()">저장</button>
+    <button onclick="viewDiary()">보기</button>
+</body>
+</html>
