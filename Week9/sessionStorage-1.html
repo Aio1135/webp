@@ -15,7 +15,20 @@
             sessionStorage.setItem(item.value,count.value);
         }
         function retrieve(){
-
+            if(!window.sessionStorage){
+                alert('세션 스토리지 지원x');
+                return;
+            }
+            let item = document.getElementById('item');
+            let value = sessionStorage.getItem(item.value);
+            if(value == null){
+                alert(item.value + '는 없음.');
+            }
+            else {
+                alert(item.value + '는 '+ value +'개 있어요');
+                let count = document.getElementById('count');
+                count.value = value;
+            }
         }
     </script>
 </head>
