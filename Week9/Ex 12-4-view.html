@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기 보기</title>
+    <script>
+        // 로컬 스토리지에서 일기를 가져오는 함수
+        function loadDiary() {
+            const today = new Date();
+            const formattedDate = today.getFullYear() + '.' +
+                                  String(today.getMonth() + 1).padStart(2, '0') + '.' +
+                                  String(today.getDate()).padStart(2, '0');
+
+            const content = localStorage.getItem(formattedDate);
+
+            if (content) {
+                document.getElementById('diaryContent').innerText = '날짜: ' + formattedDate + '\n\n' + content;
+            } else {
+                document.getElementById('diaryContent').innerText = '일기가 없습니다.';
+            }
+        }
+    </script>
+</head>
+<body onload="loadDiary()">
+    <h2>일기 보기</h2>
+    <hr>
+    <pre id="diaryContent" style="white-space: pre-wrap;"></pre>
+</body>
+</html>
